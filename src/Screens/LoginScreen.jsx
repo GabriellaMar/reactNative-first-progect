@@ -12,8 +12,13 @@ import {
 
 import { useState } from 'react';
 import bgImage from "../../assets/PhotoBG.jpg";
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const LoginScreen = () => {
+  // const route = useRoute();
+  // const { name } = route.params;
+
+    const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +28,9 @@ const LoginScreen = () => {
 
 
   const handleLoginSubmit = () => {
+    navigation.navigate("Home", {screen: 'PostsScreen'
+    //  params: {name: login, email: email } 
+    });
     console.log("LOGIN DATA:", {
       email: email,
       password: password,
@@ -30,6 +38,7 @@ const LoginScreen = () => {
     })
     setEmail("");
     setPassword("");
+    // navigation.navigate("Home", { name, email })
   }
 
   return (
@@ -73,14 +82,15 @@ const LoginScreen = () => {
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.button}
-                  onPress={handleLoginSubmit}
+                   onPress={handleLoginSubmit}
                 >
 
                   <Text style={styles.buttonText}>Увійти</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                 onPress={() => navigation.navigate("RegistrationScreen")}
                 >
-                  <Text style={styles.loginText}>Немає акаунту? Зареєструватися</Text>
+                  <Text style={styles.loginText} >Немає акаунту? Зареєструватися</Text>
                 </TouchableOpacity>
               </View>
             </View>

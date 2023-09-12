@@ -10,10 +10,12 @@ import {
   TouchableWithoutFeedback } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import bgImage from "../../assets/PhotoBG.jpg";
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 
 const RegistrationScreen = () => {
+  const navigation = useNavigation();
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +27,7 @@ const RegistrationScreen = () => {
   const [isPassInputFocused, setIsPassInputFocused] = useState(false);
 
 const handleRegisterSubmit = ()=>{
+  navigation.navigate("Home", {screen: 'PostsScreen', params: {name: login, email: email } });
   console.log("REGISTRATION DATA:",
     {
         login: login,
@@ -45,11 +48,11 @@ const handleRegisterSubmit = ()=>{
       <ImageBackground style={styles.backgoundImg} source={bgImage}>
       <KeyboardAvoidingView style={{ flex: 1, }}
             behavior={Platform.OS == "ios" ? "padding" : "height"}
-               keyboardVerticalOffset={-130}
+               keyboardVerticalOffset={-160}
              >
         <View style={styles.registationWraper}>
           <View 
-           style={{...styles.formWraper, paddingBottom: isShowedKeyboard ? 75: 45}}
+           style={{...styles.formWraper, paddingBottom: isShowedKeyboard ? 75 : 45}}
           >
             <View style={styles.avatarWrapper}>
               <TouchableOpacity style={styles.plusBtn}>
@@ -104,10 +107,12 @@ const handleRegisterSubmit = ()=>{
             </View>
             <TouchableOpacity style={styles.button}
              onPress={handleRegisterSubmit}
+            // onPress={() => navigation.navigate("PostsScreen",{name: name, email:email,})}
             >
               <Text style={styles.buttonText}>Зареєструватися</Text>
             </TouchableOpacity>
             <TouchableOpacity
+                onPress={() => navigation.navigate("LoginScreen")}
             >
               <Text style={styles.loginText}>Вже є аккаунт? Увійти</Text>
             </TouchableOpacity>
