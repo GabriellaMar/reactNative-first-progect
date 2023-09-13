@@ -62,43 +62,49 @@ const Home = () => {
                headerShown: true,
                // title: 'Публікації',
                headerTitleAlign: 'center',
-               headerTitle: () => < HeaderTittle tittle={'Публікації'}/>,
+               headerTitle: () => < HeaderTittle tittle={'Публікації'} />,
                headerRight: () => <HeaderBtnLogout style={{ marginRight: 20 }} />,
                headerRightContainerStyle: {
                   paddingRight: 16,
-                },
-                headerLeftContainerStyle: {
+               },
+               headerLeftContainerStyle: {
                   paddingLeft: 16,
-                },
-                headerTitleContainerStyle: {
-                  paddingTop: 11, 
-                  paddingBottom: 11, 
-                },
-                
+               },
+               headerTitleContainerStyle: {
+                  paddingTop: 11,
+                  paddingBottom: 11,
+               },
+
                //  headerStatusBarHeight: 88,
             }}
 
-               screenOptions={{
-                  headerRightContainerStyle: {
-                    paddingRight: 26,
-                  },
-                  headerLeftContainerStyle: {
-                    paddingLeft: 6,
-                  },    
-                }}
+            screenOptions={{
+               headerRightContainerStyle: {
+                  paddingRight: 26,
+               },
+               headerLeftContainerStyle: {
+                  paddingLeft: 6,
+               },
+            }}
          />
          <Tabs.Screen name="CreatePostsScreen" component={CreatePostsScreen}
-          options={{
-            headerShown: true,
-            // title: 'Публікації',
-            headerTitleAlign: 'center',
-            tabBarStyle: { display: 'none' },
-            headerTitle: () => < HeaderTittle tittle={'Створити публікацію'}/>,
-            headerLeft: () => <HeaderBtnBack  />,
-          }}
-         
+            options={{
+               headerShown: true,
+               // title: 'Публікації',
+               headerTitleAlign: 'center',
+               tabBarStyle: { display: 'none' },
+
+               headerTitle: () => < HeaderTittle tittle={'Створити публікацію'} />,
+               headerLeft: () => <HeaderBtnBack />,
+            }}
+
          />
-         <Tabs.Screen name="ProfileScreen" component={ProfileScreen} />
+         <Tabs.Screen name="ProfileScreen" component={ProfileScreen}
+            options={{
+               headerShown: false,
+               tabBarStyle: { display: 'block' },
+            }}
+         />
 
       </Tabs.Navigator>
 

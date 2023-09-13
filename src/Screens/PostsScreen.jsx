@@ -14,9 +14,8 @@ import {
 } from "react-native";
 
 const PostsScreen = () => {
-    const route = useRoute();
-    const { name, email } = route.params;
-
+    //  const route = useRoute();
+    //  const { email } = route.params;
     return (
         <View style={styles.container}>
             <View style={styles.profileWrapper}>
@@ -24,8 +23,10 @@ const PostsScreen = () => {
                 <Image style={styles.avatar} source={UserAvatar} />
                 </View>
                 <View>
-                    <Text style={styles.userName}>{name}</Text>
-                    <Text style={styles.userEmail}>{email}</Text>
+                    <Text style={styles.userName}>
+                        Natali Romanova</Text>
+                    <Text style={styles.userEmail}>
+                        email@example.com</Text>
                 </View>
             </View>
         </View>
@@ -34,8 +35,6 @@ const PostsScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        // display: 'flex',
-        // flexDirection: 'row',
         height: '100%',
         backgroundColor: '#FFFFFF',
         paddingHorizontal: 16,
