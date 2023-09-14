@@ -1,18 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { StyleSheet, View } from 'react-native';
-import RegistrationScreen from './src/Screens/RegistrationScreen';
-import LoginScreen from './src/Screens/LoginScreen';
-import PostsScreen from './src/Screens/PostsScreen';
-import ProfileScreen from './src/Screens/ProfileScreen';
-import HomeScreen from './src/Screens/HomeScreen'
+// import RegistrationScreen from './src/Screens/RegistrationScreen';
+// import LoginScreen from './src/Screens/LoginScreen';
+// import PostsScreen from './src/Screens/PostsScreen';
+// import ProfileScreen from './src/Screens/ProfileScreen';
+// import HomeScreen from './src/Screens/HomeScreen'
 import 'react-native-gesture-handler';
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import CreatePostsScreen from './src/Screens/CreatePostsScreen';
-import CommentsScreen from './src/Screens/CommentsScreen';
+// import { NavigationContainer } from "@react-navigation/native";
+// import { createStackNavigator } from "@react-navigation/stack";
+// import CreatePostsScreen from './src/Screens/CreatePostsScreen';
+// import CommentsScreen from './src/Screens/CommentsScreen';
+import MainNavigator from './src/routes/MainNavigator';
 
-const MainStack = createStackNavigator();
+// const MainStack = createStackNavigator();
 
 export default function App() {
 
@@ -28,53 +29,47 @@ export default function App() {
   }
 
   return (
-<NavigationContainer>
-      <MainStack.Navigator initialRouteName="RegistrationScreen">
-        <MainStack.Screen 
-        name="LoginScreen"
-         component={LoginScreen}
-         options={{ headerShown: false }}
-          />
-        <MainStack.Screen 
-        name="RegistrationScreen"
-         component={RegistrationScreen} 
-         options={{ headerShown: false }}
-         />
-        <MainStack.Screen name="PostsScreen" component={PostsScreen}   />
-        <MainStack.Screen name="CreatePostsScreen" component={CreatePostsScreen} />
-        <MainStack.Screen name="ProfileScreen" component={ProfileScreen}  />
-        {/* <MainStack.Screen
-           name="Comments"
-           component={CommentsScreen}
-           options={({ navigation }) => ({
-             header: () => (
-               <CustomHeader
-                 title={'Comments'}
-                 navigation={navigation}
-                 position={'left'}
-               />
-             ),
-           })}
-         /> */}
-        <MainStack.Screen 
-        name="Home" 
-        component={HomeScreen} 
-        options={{ headerShown: false }}
-        
-        // options={{
-        //   title: "Home screen",
-        //   headerStyle: {
-        //     backgroundColor: "#f4511e",
-        //   },
-        //   headerTintColor: "#fff",
-        //   headerTitleStyle: {
-        //     fontWeight: "bold",
-        //     fontSize: 20,
-        //   },}}
-        />
-      </MainStack.Navigator>
-    </NavigationContainer>
-  );
+    <>
+    <MainNavigator/>
+    <StatusBar style="auto" />
+    </>
+// {/* <NavigationContainer>
+//       <MainStack.Navigator initialRouteName="RegistrationScreen">
+//         <MainStack.Screen 
+//         name="LoginScreen"
+//          component={LoginScreen}
+//          options={{ headerShown: false }}
+//           />
+//         <MainStack.Screen 
+//         name="RegistrationScreen"
+//          component={RegistrationScreen} 
+//          options={{ headerShown: false }}
+//          />
+//         <MainStack.Screen name="PostsScreen" component={PostsScreen}   />
+//         <MainStack.Screen name="CreatePostsScreen" component={CreatePostsScreen} />
+//         <MainStack.Screen name="ProfileScreen" component={ProfileScreen}  />
+//         {/* <MainStack.Screen
+//            name="Comments"
+//            component={CommentsScreen}
+//            options={({ navigation }) => ({
+//              header: () => (
+//                <CustomHeader
+//                  title={'Comments'}
+//                  navigation={navigation}
+//                  position={'left'}
+//                />
+//              ),
+//            })}
+//          /> */}
+//         <MainStack.Screen 
+//         name="Home" 
+//         component={HomeScreen} 
+//         options={{ headerShown: false }}
+//         />
+//       </MainStack.Navigator>
+//     </NavigationContainer>
+//   ); */}
+  )
 }
 
 const styles = StyleSheet.create({

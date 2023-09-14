@@ -40,10 +40,11 @@ const CreatePostsScreen = () => {
             </View>
 
             <TouchableOpacity
-                style={styles.postButton}
-            // style={[downloadPhoto ? styles.postButton : styles.noPostBtn]}
+                // style={styles.postButton}
+            style={[downloadPhoto ? styles.postButton : styles.noPostBtn]}
+         
             >
-                <Text style={styles.btnText}>Опублікувати </Text>
+                <Text style={[styles.btnText, downloadPhoto ? styles.postBtnText : styles.noPostBtnText]}>Опублікувати </Text>
             </TouchableOpacity>
 
 
@@ -71,6 +72,7 @@ const styles = StyleSheet.create({
         width: 343,
         height: 240,
         backgroundColor: '#E8E8E8',
+        borderRadius: 8,
     },
     imageText: {
         fontFamily: 'Roboto-Regular',
@@ -83,6 +85,7 @@ const styles = StyleSheet.create({
     },
     imgContainer: {
         marginBottom: 32,
+       
     },
 
     input: {
@@ -112,16 +115,17 @@ const styles = StyleSheet.create({
         marginTop: 16,
         backgroundColor: '#FF6C00',
     },
-    // noPostBtn: {
-    //     borderRadius: 50,
-    //     paddingHorizontal: 120,
-    //     paddingVertical: 16,
-    //     marginTop: 16,
-    //     backgroundColor: '#F6F6F6',
-    // },
-    btnText: {
+    noPostBtn: {
+        borderRadius: 50,
+        paddingHorizontal: 120,
+        paddingVertical: 16,
+        marginTop: 16,
+        backgroundColor: '#F6F6F6',
+    },
+    noPostBtnText: {
         color: '#BDBDBD',
     },
+    postBtnText: {color: '#FFFFFF'},
     deletePostBtn: {
         position: 'relative',
         width: 70,
@@ -154,7 +158,7 @@ const styles = StyleSheet.create({
     },
     locationContainer: {
         position: 'relative',
-        flex: 1,
+        // flex: 1,
         flexDirection: 'row',
         gap: 5,
     },

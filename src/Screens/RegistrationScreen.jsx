@@ -12,6 +12,7 @@ import { AntDesign } from '@expo/vector-icons';
 import bgImage from "../../assets/PhotoBG.jpg";
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+import PostsScreen from "./PostsScreen";
 
 
 const RegistrationScreen = () => {
@@ -27,7 +28,9 @@ const RegistrationScreen = () => {
   const [isPassInputFocused, setIsPassInputFocused] = useState(false);
 
 const handleRegisterSubmit = ()=>{
-  navigation.navigate("Home", {screen: 'PostsScreen', params: {name: login, email: email } });
+  navigation.navigate("BottomTabNavigator",
+  //  {screen: 'PostsScreen', params: {name: login, email: email } }
+  );
   console.log("REGISTRATION DATA:",
     {
         login: login,
@@ -106,6 +109,7 @@ const handleRegisterSubmit = ()=>{
               </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.button}
+            //  onPress={() => navigation.navigate("PostsScreen")}
              onPress={handleRegisterSubmit}
             // onPress={() => navigation.navigate("PostsScreen",{name: name, email:email,})}
             >
