@@ -59,7 +59,9 @@ const ProfileScreen = () => {
                     <FlatList
                         data={postsData}
                         renderItem={({ item }) => <Post post={item} />}
-                        keyExtractor={(item) => item.id} />
+                        keyExtractor={(item) => item.id}
+                        showsVerticalScrollIndicator={false}
+                        />
                 </View>
             </View>
 
@@ -90,8 +92,6 @@ const styles = StyleSheet.create({
     },
     profileWrapper: {
         paddingTop: 32,
-        // paddingBottom: 20,
-        // marginBottom: 30,
         borderTopRightRadius: 25,
         borderTopLeftRadius: 25,
         backgroundColor: "#FFFFFF",
@@ -127,8 +127,6 @@ const styles = StyleSheet.create({
         width: 120,
         height: 120,
         borderRadius: 16,
-        // marginLeft: "auto",
-        // marginRight: "auto",
 
     },
     plusIcon: {

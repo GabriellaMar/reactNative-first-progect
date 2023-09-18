@@ -28,9 +28,7 @@ const LoginScreen = () => {
 
 
   const handleLoginSubmit = () => {
-    navigation.navigate("Home", {screen: 'PostsScreen'
-    //  params: {name: login, email: email } 
-    });
+    navigation.navigate("BottomTabNavigator" );
     console.log("LOGIN DATA:", {
       email: email,
       password: password,

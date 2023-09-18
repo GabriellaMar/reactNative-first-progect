@@ -60,7 +60,7 @@ export default CreatePostsScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+         flex: 1,
         alignItems: 'center',
         height: '100%',
         backgroundColor: '#FFFFFF',
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 
     },
     img: {
-        width: 343,
+        // width: '100%',
         height: 240,
         backgroundColor: '#E8E8E8',
         borderRadius: 8,
@@ -84,7 +84,9 @@ const styles = StyleSheet.create({
 
     },
     imgContainer: {
+        width: '100%',
         marginBottom: 32,
+        
        
     },
 
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#E8E8E8',
         backgroundColor: 'white',
         //   width: '100%',
-        width: 343,
+        // width: 343,
         borderBottomWidth: 1,
         marginBottom: 16,
 
@@ -102,8 +104,8 @@ const styles = StyleSheet.create({
         height: 50,
         borderBottomColor: '#E8E8E8',
         backgroundColor: 'white',
-        //   width: '100%',
-        width: 343,
+           width: '100%',
+        // width: 343,
         borderBottomWidth: 1,
         marginBottom: 16,
         paddingLeft: 30,
@@ -142,15 +144,22 @@ const styles = StyleSheet.create({
         right: 22,
     },
     cameraBtn: {
-        position: 'relative',
-        top: 90,
-        left: 140,
+        position: 'absolute',
+    //  top: '45%',
+      left: '45%',
         width: 50,
         height: 50,
         backgroundColor: '#FFFFFF',
         borderRadius: 50,
-
-    },
+           transform: [{ translateX: 0 }, { translateY: 90 }], 
+      },
+      
+      
+      
+      
+      
+      
+      
     cameraIcon: {
         position: "absolute",
         top: 12,

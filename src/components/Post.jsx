@@ -8,9 +8,7 @@ const Post = ({ post }) => {
 
   return (
     <View style={styles.postwrapper}>
-      <View style={styles.imgPostwrapper}>
-        <ImageBackground source={image} style={styles.imageBackground}></ImageBackground>
-      </View>
+      <ImageBackground source={image} style={styles.imageBackground}></ImageBackground>
       <Text style={styles.postTittle}>{title}</Text>
       <View style={styles.comentsWrapper}>
         <FontAwesome name="comment" size={24} color={comments.length > 0 ? '#FF6C00' : '#BDBDBD'} />
@@ -34,22 +32,22 @@ export default Post;
 
 const styles = StyleSheet.create({
   postwrapper: {
-    marginLeft: "auto",
-    marginRight: "auto",
+    paddingLeft: 16,
+    paddingRight: 16,
     marginBottom: 32,
-  },
-  imgPostwrapper: {
-    position: 'relative',
-    width: 342,
-    height: 240,
-    backgroundColor: '#BDBDBD',
-    borderRadius: 8,
-    marginBottom: 8,
 
   },
   imageBackground: {
-    width: 342,
+    // flex: 1,
+    // resizeMode: "cover",
+    // justifyContent: "center",
+    width: '100%',
     height: 240,
+    borderRadius: 8,
+    overflow: 'hidden',
+    marginBottom: 8,
+
+
   },
   postTittle: {
     fontFamily: 'Roboto-Medium',
@@ -60,11 +58,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   comentsWrapper: {
-    // flex:1,
     flexDirection: 'row',
     gap: 6,
     alignItems: 'baseline',
-    // justifyContent: 'space-between',
+
   },
   locationWrapper: {
     flexDirection: 'row',
