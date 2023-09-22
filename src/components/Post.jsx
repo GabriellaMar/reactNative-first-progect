@@ -1,25 +1,39 @@
 import React from 'react';
 import { View, ImageBackground, StyleSheet, Text } from 'react-native';
 import { AntDesign, FontAwesome, Feather } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 // import image from '../../assets/forest.jpg'
 
-const Post = ({ post }) => {
-  const { title, image, comments, likes } = post;
+const Post = ({ post, showLikesIcon}) => {
+  const {  id, title, image, comments, likes, locationName, location } = post;
+  const navigation = useNavigation();
+
+const handleLocationPress = ()=>{
+  navigation.navigate('MapScreen', {location});
+}
+
+const handleCommentsPress = ()=>{
+  navigation.navigate('Comments', { postId: id })
+}
 
   return (
     <View style={styles.postwrapper}>
       <ImageBackground source={image} style={styles.imageBackground}></ImageBackground>
       <Text style={styles.postTittle}>{title}</Text>
       <View style={styles.comentsWrapper}>
-        <FontAwesome name="comment" size={24} color={comments.length > 0 ? '#FF6C00' : '#BDBDBD'} />
+        <FontAwesome name="comment" size={24} color={comments.length > 0 ? '#FF6C00' : '#BDBDBD'}  onPress={handleCommentsPress}/>
         <Text style={styles.comentAmount}>
           {comments.length.toString()}
         </Text>
-        <AntDesign name="like2" size={24} color={likes > 0 ? '#FF6C00' : '#BDBDBD'} />
-        <Text style={styles.comentAmount}>{likes.toString()}</Text>
+        {showLikesIcon && (
+          <>
+            <AntDesign name="like2" size={24} color={likes > 0 ? '#FF6C00' : '#BDBDBD'} />
+            <Text style={styles.comentAmount}>{likes.toString()}</Text>
+          </>
+        )}
         <View style={styles.locationWrapper}>
-          <Feather name='map-pin' size={24} color='#BDBDBD' />
-          <Text style={styles.locationTittle}>локація</Text>
+          <Feather name='map-pin' size={24} color='#BDBDBD' onPress={handleLocationPress} />
+          <Text style={styles.locationTittle}>{locationName}</Text>
         </View>
       </View>
     </View>
@@ -32,10 +46,7 @@ export default Post;
 
 const styles = StyleSheet.create({
   postwrapper: {
-    paddingLeft: 16,
-    paddingRight: 16,
-    marginBottom: 32,
-
+   marginBottom: 32,
   },
   imageBackground: {
     // flex: 1,

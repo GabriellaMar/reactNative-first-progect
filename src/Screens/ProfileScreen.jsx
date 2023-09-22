@@ -4,39 +4,11 @@ import { HeaderBtnLogout } from "../components/HeaderBtnLogout";
 import { AntDesign} from '@expo/vector-icons';
 import BigUserAvatar from '../../assets/bigAvatar.jpg';
 import Post from "../components/Post";
+import { postsData } from "../postsData/postsData";
 // import { useState } from "react";
-import image from '../../assets/forest.jpg'
-import blackSee from '../../assets/blackSee.jpg'
-import oldHouse from '../../assets/oldHouse.jpg'
+
 const ProfileScreen = () => {
 
-    const postsData = [{
-        id: 5,
-        title: 'Ліс',
-        image: image,
-        comments: [1, 2, 3],
-        likes: 2,
-        // location: Ukraine,
-    },
-
-    {
-        id: 3,
-        title: 'Захід сонця на Чорному морі',
-        image: blackSee,
-        comments: [],
-        likes: 10,
-        //  location: Paris,
-    },
-    {
-        id: 1,
-        title: 'Старий будинок',
-        image: oldHouse,
-        comments: [1],
-        likes: 5,
-        //  location: Italy,
-    },
-
-    ]
     return (
         <ImageBackground style={styles.backgoundImg} source={bgImage}>
             <View style={styles.flexContainer}>
@@ -58,7 +30,7 @@ const ProfileScreen = () => {
                     <Text style={styles.profileTitle}>Natali Romanova</Text>
                     <FlatList
                         data={postsData}
-                        renderItem={({ item }) => <Post post={item} />}
+                        renderItem={({ item }) => <Post post={item} showLikesIcon={true}/>}
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false}
                         />
@@ -88,6 +60,7 @@ const styles = StyleSheet.create({
         marginTop: 103,
         flex: 1,
         justifyContent: 'flex-end',
+        
 
     },
     profileWrapper: {
@@ -97,6 +70,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         maxHeight: Dimensions.get('window').height - 157,
         marginTop: 157,
+        paddingLeft: 16,
+        paddingRight: 16,
+        
     },
 
     backgoundImg: {

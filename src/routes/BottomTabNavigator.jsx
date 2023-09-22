@@ -55,6 +55,7 @@ const BottomTabNavigator  = ()=>{
               headerRightContainerStyle: { paddingRight: 16, paddingBottom: 9 },
               headerLeftContainerStyle: { paddingLeft: 16, paddingBottom: 9 },
               tabBarStyle: { height: 70, justifyContent: 'center' },
+              unmountOnBlur: true,
   
            })}
         >

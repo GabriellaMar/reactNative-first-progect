@@ -1,4 +1,5 @@
 import { View, StyleSheet, Text } from "react-native";
+
  export const HeaderTittle =({tittle})=>{
     return (
       <Text style={styles.headerTittle}>{tittle}</Text>

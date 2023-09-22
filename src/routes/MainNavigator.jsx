@@ -4,9 +4,12 @@ import BottomTabNavigator from "./BottomTabNavigator";
 // import { StyleSheet, View } from 'react-native';
 import RegistrationScreen from '../Screens/RegistrationScreen';
 import LoginScreen from '../Screens/LoginScreen';
+import MapScreen from "../Screens/MapScreen";
 // import PostsScreen from './src/Screens/PostsScreen';
 // import ProfileScreen from './src/Screens/ProfileScreen';
-// import CommentsScreen from './src/Screens/CommentsScreen';
+ import CommentsScreen from '../Screens/CommentsScreen';
+import { HeaderBtnBack } from "../components/HeaderBtnBack";
+import { HeaderTittle } from "../components/HeaderTittle";
 
 
 const MainStack = createStackNavigator();
@@ -25,27 +28,32 @@ const MainNavigator = ()=>{
                  component={RegistrationScreen} 
                  options={{ headerShown: false }}
                  />
-                {/* <MainStack.Screen name="PostsScreen" component={PostsScreen}   />
-                <MainStack.Screen name="CreatePostsScreen" component={CreatePostsScreen} />
-                <MainStack.Screen name="ProfileScreen" component={ProfileScreen}  /> */}
                  <MainStack.Screen  
                  name="BottomTabNavigator" 
                  component={BottomTabNavigator} 
                  options={{ headerShown: false }}
                  />
-                {/* <MainStack.Screen
+                  <MainStack.Screen 
+                name="MapScreen"
+                 component={MapScreen}
+                 options={{ headerShown: false }}
+                  />
+                 <MainStack.Screen
                    name="Comments"
                    component={CommentsScreen}
-                   options={({ navigation }) => ({
-                     header: () => (
-                       <CustomHeader
-                         title={'Comments'}
-                         navigation={navigation}
-                         position={'left'}
-                       />
-                     ),
-                   })}
-                 /> */}
+                   options={{
+                    headerShown: true,
+                    // title: 'Публікації',
+                    headerTitleAlign: 'center',
+                    headerLeftContainerStyle: {
+                      paddingLeft: 16,
+                   },
+                    tabBarStyle: { display: 'none', },
+     
+                    headerTitle: () => < HeaderTittle tittle={'Коментарі'} />,
+                    headerLeft: () => <HeaderBtnBack />,
+                 }}
+                 /> 
                 {/* <MainStack.Screen 
                 name="Home" 
                 component={HomeScreen} 
