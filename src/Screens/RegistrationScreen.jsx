@@ -13,11 +13,14 @@ import bgImage from "../../assets/PhotoBG.jpg";
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import PostsScreen from "./PostsScreen";
+import { useDispatch } from 'react-redux'
+import { authUserThunk } from "../redux/operations";
 
 
 const RegistrationScreen = () => {
   const navigation = useNavigation();
-  const [login, setLogin] = useState("");
+   const dispatch = useDispatch();
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -27,23 +30,22 @@ const RegistrationScreen = () => {
   const [isEmailInputFocused, setIsEmailInputFocused] = useState(false);
   const [isPassInputFocused, setIsPassInputFocused] = useState(false);
 
-const handleRegisterSubmit = ()=>{
-  navigation.navigate("BottomTabNavigator",
-  //  {screen: 'PostsScreen', params: {name: login, email: email } }
-  );
-  console.log("REGISTRATION DATA:",
-    {
-        login: login,
+  const handleRegisterSubmit = async () => {
+    try {
+      await dispatch(authUserThunk({ email, password, displayName: userName }));
+      console.log("REGISTRATION DATA:", {
+        userName: userName,
         email: email,
         password: password,
+      });
+      setUserName("");
+      setEmail("");
+      setPassword("");
+      navigation.navigate("BottomTabNavigator");
+    } catch (error) {
+      console.error("Помилка реєстрації:", error);
     }
-  )
-  setLogin("");
-  setEmail("");
-  setPassword("");
-}
-
-
+  };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={{ flex: 1, }} >
@@ -68,14 +70,14 @@ const handleRegisterSubmit = ()=>{
             </View>
 
             <Text style={styles.title}>Реєстрація</Text>
-            <TextInput placeholder="Логін" style={[styles.input, isLoginInputFocused ? styles.focusedInput : null]}
+            <TextInput placeholder="Ім'я" style={[styles.input, isLoginInputFocused ? styles.focusedInput : null]}
              onFocus={() => {setIsLoginInputFocused(true)
                               setIsShowedKeyboard(true)
             }}
               onBlur={() => setIsLoginInputFocused(false)}
               // autoFocus={true}
-              value={login}
-              onChangeText={setLogin}
+              value={userName}
+              onChangeText={setUserName}
             />
             <TextInput style={[styles.input, isEmailInputFocused ? styles.focusedInput : null]}
               onFocus={() => {setIsEmailInputFocused(true)

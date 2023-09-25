@@ -5,6 +5,9 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 // AIzaSyCpe5zjQd2vFZfK8PFcZpyyZmuUZqcqFHQ
 // SHA_1= 9C:46:CD:F3:1B:72:51:DF:23:60:28:F4:A3:14:C2:62:B4:0A:7E:1B
+//  const URL_DB = https://savvy-concord-399617-default-rtdb.firebaseio.com/
+
+
 
 const MapScreen = ({location}) => {
     console.log('Location in MapScreen:', location);

@@ -31,9 +31,9 @@ const handleCommentsPress = ()=>{
             <Text style={styles.comentAmount}>{likes.toString()}</Text>
           </>
         )}
-        <View style={styles.locationWrapper}>
+        <View style={styles.locationWrapper} >
           <Feather name='map-pin' size={24} color='#BDBDBD' onPress={handleLocationPress} />
-          <Text style={styles.locationTittle}>{locationName}</Text>
+          <Text style={styles.locationTittle}onPress={handleLocationPress}>{locationName}</Text>
         </View>
       </View>
     </View>
